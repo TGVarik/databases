@@ -29,7 +29,7 @@ describe("Persistent Node Chat Server", function() {
     dbConnection.end();
   });
 
-  it("Should insert posted messages to the DB", function(done) {
+  xit("Should insert posted messages to the DB", function(done) {
     // Post a message to the node chat server:
     request({method: "POST",
              uri: "http://127.0.0.1:3000/classes/messages",
@@ -61,15 +61,15 @@ describe("Persistent Node Chat Server", function() {
             });
   });
 
-  it("Should output all messages from the DB", function(done) {
+  xit("Should output all messages from the DB", function(done) {
     // Let's insert a message into the db
-    var queryString = "";
+    var queryString = "INSERT INTO messages (text, roomname) VALUES ('Men like you can never change!', 'main');";
     var queryArgs = [];
     /* TODO - The exact query string and query args to use
      * here depend on the schema you design, so I'll leave
      * them up to you. */
 
-    dbConnection.query( queryString, queryArgs,
+    dbConnection.query( queryString, //queryArgs,
       function(err) {
         if (err) { throw err; }
         /* Now query the Node chat server and see if it returns
